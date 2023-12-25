@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <property name="default_tablespace" value="USERS" dbms="oracle"/>
+    <property name="default_tablespace" value="pg_default" dbms="postgresql"/>
+    <property name="index_tablespace" value="INDX" dbms="oracle"/>
+    <property name="index_tablespace" value="pg_default" dbms="postgresql"/>    <property name="dateType" value="date" dbms="oracle"/>
+    <property name="dateType" value="timestamp" dbms="postgresql, h2"/>
+
+    <include file="changelog/add_user_auth_data_144823122023.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="add_user_auth_data_144823122023" author="Knyaginin Dmitry" labels="Creating of table user_auth_data">
+        <createTable tableName="user_auth_data"
+                     tablespace="${default_tablespace}"
+                     remarks="Authentication data table">
+            <column name="user_id"
+                    type="varchar2(40)"
+                    remarks="ID">
+                <constraints primaryKey="true"
+                             primaryKeyTablespace="${index_tablespace}"
+                             nullable="false"/>
+            </column>
+            <column name="create_date"
+                    type="${dateType}"
+                    remarks="Время создания задачи">
+            </column>
+            <column name="email"
+                    type="varchar2(200)"
+                    remarks="User email">
+            </column>
+            <column name="user_name"
+                    type="varchar2(200)"
+                    remarks="User name">
+            </column>
+            <column name="password"
+                    type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_confirmed"
+                    type="boolean">
+                <constraints nullable="true"/>
+            </column>
+            <column name="confirm_url"
+                    type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="confirm_url_exp_dttm"
+                    type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
