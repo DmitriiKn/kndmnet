@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: usersrv
+  labels:
+    type: back-end
+spec:
+  containers:
+    - name: usernetserv
+      image: ru.kndmnet/usernetserv
+      env:
+        - name: DB_HOST
+          value: "192.168.0.105" 
+        - name: DB_NAME
+          value: "kndm_net_user_db" 
+        - name: DB_USER
+          value: "postgres" 
+        - name: DB_PASS
+          value: "1234"

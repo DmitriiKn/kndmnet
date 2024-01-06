@@ -21,9 +21,13 @@ public class RegistrationController {
         this.userService = userService;
     }
 
-    @PostMapping
-    public ResponseEntity<RegResponseDto> register(@RequestBody @Valid RegRequestDto request){
-        RegResponseDto registrationResult = userService.registerUserIfNotAlreadyExisted(request);
-        return new ResponseEntity(new RegResponseDto(), HttpStatus.OK);
+    @PostMapping(produces = "application/json")
+    public ResponseEntity<?> register(@RequestBody @Valid RegRequestDto request){
+        try {
+            RegResponseDto registrationResult = userService.registerUserIfNotAlreadyExisted(request);
+            return new ResponseEntity(registrationResult, HttpStatus.OK);
+        } catch (Throwable exception){
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }

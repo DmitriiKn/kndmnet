@@ -1,6 +1,7 @@
 package ru.kndmnet.usernetserv.persistanse.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.type.TrueFalseConverter;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Table(name = "user_auth_data")
 @Getter
 @Setter
+@Builder
 public class UserAuthData implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

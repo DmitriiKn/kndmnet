@@ -9,7 +9,7 @@
                      tablespace="${default_tablespace}"
                      remarks="Authentication data table">
             <column name="user_id"
-                    type="varchar2(40)"
+                    type="${uuid_type}"
                     remarks="ID">
                 <constraints primaryKey="true"
                              primaryKeyTablespace="${index_tablespace}"
@@ -28,15 +28,15 @@
                     remarks="User name">
             </column>
             <column name="password"
-                    type="varchar(255)">
+                    type="varchar2(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="is_confirmed"
-                    type="boolean">
+                    type="varchar2(1)">
                 <constraints nullable="true"/>
             </column>
             <column name="confirm_url"
-                    type="varchar(255)">
+                    type="varchar2(255)">
                 <constraints nullable="true"/>
             </column>
             <column name="confirm_url_exp_dttm"
@@ -44,5 +44,8 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
+        <createIndex tableName="user_auth_data" indexName="user_auth_data_email_ind0">
+            <column name="email"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>

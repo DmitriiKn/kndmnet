@@ -38,3 +38,8 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+task docker(type: Exec) {
+	commandLine 'cd /Documents/projects/kndmnet_repo/kndmnet/usernetserv'
+	commandLine 'docker build --build-arg JAR_FILE=build/libs/*.jar -t ru.kndmnet/usernetserv .'
+}
