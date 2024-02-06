@@ -1,0 +1,71 @@
+openapi: '3.1.0'
+info:
+  title: UserNetServ API
+  version: '1.0'
+paths:
+  /api/v1/user/registration:
+    post:
+      summary: Registration request
+      requestBody:
+        $ref: "#/components/schemas/RegRequestDto"
+      responses:
+        '200':
+          $ref: "#/components/schemas/RegResponseDto"
+
+components:
+  schemas:
+    RegRequestDto:
+      description: Registration request
+      required: true
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: The first name of the user.
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          example: Doe
+        password:
+          type: string
+          description: The password for the user.
+          example: mypassword
+        matchingPassword:
+          type: string
+          description: The matching password for confirmation.
+          example: mypassword
+        email:
+          type: string
+          description: The email address of the user.
+          example: john.doe@example.com
+    RegResponseDto:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+          description: The unique identifier of the user.
+          example: 123e4567-e89b-12d3-a456-426614174000
+        error:
+          $ref: '#/components/schemas/ApiError'
+      required:
+        - userId
+    ApiError:
+      type: object
+      properties:
+        errorText:
+          type: string
+          description: The description of the error.
+          example: "Invalid input data"
+      required:
+        - errorText
+    ErrorDto:
+      type: object
+      properties:
+        errorText:
+          type: string
+          description: The description of the error.
+          example: "Invalid input data"
+      required:
+        - errorText
