@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import ru.kndmnet.usernetserv.persistanse.entity.UserAuthData;
 import ru.kndmnet.usernetserv.persistanse.repository.UserAuthDataRepository;
 
-@Component
+@Component("emailUserFacade")
 public class EmailUserFacade implements UserFacade{
 
     private final UserAuthDataRepository authDataRepository;
@@ -15,6 +15,6 @@ public class EmailUserFacade implements UserFacade{
 
     @Override
     public UserAuthData saveUserAuthData(UserAuthData authData) {
-        return null;
+        return authDataRepository.save(authData);
     }
 }

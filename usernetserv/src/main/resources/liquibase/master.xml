@@ -13,7 +13,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
     <property name="index_tablespace" value="INDX" dbms="oracle"/>
     <property name="index_tablespace" value="pg_default" dbms="postgresql"/>    <property name="dateType" value="date" dbms="oracle"/>
     <property name="dateType" value="timestamp" dbms="postgresql, h2"/>
-    <property name="uuid_type" value="uuid" dbms="postgresql"/>
+    <property name="uuid_type" value="uuid" dbms="postgresql, h2"/>
     <property name="uuid_type" value="RAW(16)" dbms="oracle"/>
 
     <include file="changelog/add_user_auth_data_144823122023.xml" relativeToChangelogFile="true"/>
