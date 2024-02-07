@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: netapigate
+  labels:
+    name: netapigate
+    type: back-end-gate
+spec:
+  containers:
+  - name: netapigate
+    image: ru.kndmnet/netapigate
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8002
