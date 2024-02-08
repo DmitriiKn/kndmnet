@@ -25,7 +25,7 @@ public class ServiceMapCache {
 
     private Map<ActionType, String> getActionTypeStringMap() {
         Map<ActionType, String> registrationActions = new HashMap<>();
-        registrationActions.put(ActionType.REGISTER, "http://usersrv/api/v1/user/registration");
+        registrationActions.put(ActionType.REGISTER, "http://localhost:8001/api/v1/user/registration");
         return registrationActions;
     }
 

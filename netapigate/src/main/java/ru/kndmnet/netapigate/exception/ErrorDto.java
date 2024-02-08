@@ -1,5 +1,11 @@
 package ru.kndmnet.netapigate.exception;
 
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@Getter
+@Setter
 public abstract class ErrorDto {
 
     public ErrorDto(String errorText) {

@@ -7,9 +7,12 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
+import reactor.netty.FutureMono;
 import ru.kndmnet.netapigate.dto.registration.RegRequestDto;
 import ru.kndmnet.netapigate.dto.registration.RegResponseDto;
 import ru.kndmnet.netapigate.exception.ApiError;
+
+import java.util.concurrent.FutureTask;
 
 @Component
 @Slf4j
@@ -25,8 +28,7 @@ public class RegistrationHandler {
         try {
             return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                     .body(BodyInserters.fromValue(
-                            adapter.callRegistrationService(request.bodyToMono(RegRequestDto.class)
-                                    .block())
+                            adapter.callRegistrationService(request.bodyToMono(RegRequestDto.class))
                     ));
         } catch (Exception exception) {
             log.error("Registration request if fall with error: ", exception);
